@@ -1,0 +1,36 @@
+<div class=" ps-4 container">
+  <div class="row"> 
+    <div class="col-6  pt-4 m-auto d-flex flex-wrap mx-2 ">
+      {% for ders in dersler %}
+      <div class="card my-2 mx-2 " style="width: 18rem;">
+        <div class="card-body">
+          <h2 class="card-title">{{ders.öğretmen}}</h2>
+          <h6 class="card-subtitle mb-2 text-muted">{{ders.ders_tarihi}}</h6>
+          <h6 class="card-subtitle mb-2 text-muted">{{ders}}</h6>
+          <p class="card-text">{{ders.ders_konu}}</p>
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="col-5 ps-5 mt-4 ">
+      <div class=" " >  
+        <h4>Bugünün dersleri:</h4>
+        {% for today in today %}
+        <div class="card mx-3 my-3 " style="width: 18rem;">
+          <div class="card-body">
+            <h2 class="card-title">{{today.öğretmen}}</h2>
+            <h6 class="card-subtitle mb-2 text-muted">{{today.ders_tarihi}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{today}}</h6>
+            <p class="card-text">{{today.ders_konu}}</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+

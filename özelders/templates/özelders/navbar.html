@@ -1,0 +1,73 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-2 fst-italic text-warning" href="{% url 'home' %}">
+        <img src="" alt=""> buraya image
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+{% if user.is_authenticated %}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <li class="nav-item">
+      <a class="nav-link me-5 text-white " href="{% url 'blog' %}">Anasayfa</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link me-5 text-white " href="{% url 'blog' %}">Yazılım</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link me-5 text-white " href="{% url 'home' '2022' 'September' %}">Kripto</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link me-5 text-white" href="{% url 'home' '2022' 'October' %}">Matematik</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link me-5 text-white " href="{% url 'home' '2022' 'October' %}">Blog Yazılarım</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link me-5 text-white " href="{% url 'blog' %}">İletişim</a>
+    </li>
+    <li class="nav-item mt-1 me-3">
+      <a href="">
+        <button class="  border-warning bg-dark text-white rounded mt-1" >{{request.user}}</button>
+      </a>
+    </li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'logout' %}">
+      <button class=" border-warning bg-dark text-white rounded">Çıkış</button>
+  </a>
+</li>
+</div>
+
+{% else %}
+<li class="nav-item mt-1 me-3">
+  <a href="{% url 'register' %}">
+    <button class=" border-warning bg-dark text-white rounded " >Üye ol</button>
+  </a>
+</li>
+<li class="nav-item mt-1 me-3">
+  <a href="{% url 'login' %}">
+    <button class="uye_ol border-warning bg-dark text-white rounded" >Giriş Yap</button>
+  </a>
+</li>
+{% endif %}
+          
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-warning" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  {% if messages %}
+            {% for mesaj in messages %}
+                <div class="alert alert-{{mesaj.tags}} text-center ">{{mesaj}}</div>
+
+            {% endfor %}
+        {% endif %}
+
+
