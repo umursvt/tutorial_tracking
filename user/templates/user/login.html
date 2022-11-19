@@ -1,0 +1,22 @@
+{% extends "özelders/base.html" %}
+{% load static %}
+
+
+
+{% block content %}
+    <div class="container div">
+        <form action="" method="POST" class="w-50 m-auto     text-dark p-5 position-absolute top-20 start-50 " >
+
+            {% csrf_token %}
+            <label for="" class=' text-white ' >Kullanıcı Adı</label>
+            <input type="text" name="kullanici" id="" class="form-control" placeholder='Kullanıcı Adı'>
+            
+            <label for="" class=' text-white '>Şifre</label>
+            <input type="password" name="sifre" id="" class="form-control" placeholder='Şifre'>
+
+
+            <input type="submit" value="Giriş Yap" class="btn btn-warning mt-2">
+            
+        </form>
+    </div>
+{% endblock content %}
